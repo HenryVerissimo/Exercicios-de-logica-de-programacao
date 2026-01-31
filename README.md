@@ -15,7 +15,7 @@ Os desafios são gerados com o auxílio de IA (como o Google Gemini), o que me p
 
 ### 🛠️ Linguagens utilizadas nos estudos
 
-[![My Skills](https://skillicons.dev/icons?i=c,python,bash)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=bash,python,c)](https://skillicons.dev)
 
 * **C:** Exploração de baixo nível, manipulação de ponteiros e gestão de memória.
 * **Python:** Desenvolvimento de lógica de alto nível e algoritmos modernos.
