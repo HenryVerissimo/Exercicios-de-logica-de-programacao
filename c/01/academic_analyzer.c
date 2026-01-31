@@ -32,10 +32,18 @@ int main(void) {
             printf("Digite a primeira nota: ");
             scanf("%f", &testScore1);
 
+            if ((testScore1 < 0.00 || testScore1 > 10.00) || (testScore2 < 0.00 || testScore2 > 10.00)) {
+                printf("\nAs notas do %d° aluno precisam estar entre 0 e 10!\n", studentNumber);
+                printf("tente novamente...\n\n");
+
+            }
+        } while ((testScore1 < 0.00 || testScore1 > 10.00));
+
+        do {
             printf("Digite a segunda nota: ");
             scanf("%f", &testScore2);
 
-            if ((testScore1 < 0.00 || testScore1 > 10.00) || (testScore2 < 0.00 || testScore2 > 10.00)) {
+            if ((testScore2 < 0.00 || testScore2 > 10.00)) {
                 printf("\nAs notas do %d° aluno precisam estar entre 0 e 10!\n", studentNumber);
                 printf("tente novamente...\n\n");
 
