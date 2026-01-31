@@ -1,8 +1,20 @@
 #include <stdio.h>
 
+void processMetrics(float testScore1, float testScore2, float *pAverage, char *pStatus) {
+    *pAverage = (testScore1 + testScore2) / 2;
+
+    if (*pAverage >= 7.0 ) {
+        *pStatus = 'A';
+    } else if (*pAverage >= 5.0) {
+        *pStatus = 'R';
+    } else {
+        *pStatus = 'F';
+    }
+}
+
 int main(void) {
     float testScore1, testScore2, average;
-    char status[15];
+    char status;
     int students;
 
     do {
@@ -29,6 +41,25 @@ int main(void) {
 
             }
         } while ((testScore1 < 0.00 || testScore1 > 10.00) || (testScore2 < 0.00 || testScore2 > 10.00));
+
+        processMetrics(testScore1, testScore2, &average, &status);
+
+        printf("\n------------------------------\n");
+        printf("Resultado do aluno %d:\n", studentNumber);
+        printf("Média: %.2f\n", average);
+
+        switch (status) {
+            case 'A':
+                printf("Staus: Aprovado\n");
+                break;
+            case 'R':
+                printf("Status: Recuperação\n");
+                break;
+            default:
+                printf("Status: Reprovado\n");
+        }
+        
+        printf("------------------------------\n\n");
     }
     
     return 0;
