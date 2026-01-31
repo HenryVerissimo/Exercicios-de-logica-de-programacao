@@ -29,9 +29,9 @@ O repositório está organizado de forma modular. Cada diretório contém os có
 
 ```text
 .
-├── 📂 C/          # Exercícios em C (Foco em Memória e Estruturas)
-├── 📂 Python/     # Exercícios em Python (Foco em Lógica e Algoritmos)
-└── 📂 Bash/       # Exercícios em Bash (Foco em Automação de Tarefas)
+├── 📂 c/          # Exercícios em C (Foco em Memória e Estruturas)
+├── 📂 python/     # Exercícios em Python (Foco em Lógica e Algoritmos)
+└── 📂 bash/       # Exercícios em Bash (Foco em Automação de Tarefas)
 ```
 ---
 
