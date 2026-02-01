@@ -14,5 +14,10 @@
 # Usage: ./organizer.sh ou bash organizer.sh
 #-------------------------------------------------------------------------
 # Variables:
+file_origin_path="./"
+file_destination_path=./backup/
+pattern1="\.log$"
+pattern2="\.tmp$"
+moved_files_number=0
 #-------------------------------------------------------------------------
 # Script:
