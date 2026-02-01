@@ -22,18 +22,30 @@ moved_files_number=0
 #-------------------------------------------------------------------------
 # Script:
 
-[ ! -d $file_destination_path ] && mkdir "$file_destination_path"
+[ ! -d $file_destination_path ] && mkdir "$file_destination_path" && echo "[info] Criando diretório de backup"
 
 for file in "$file_origin_path"*
 do
     if [[ ($file =~ $pattern1 || ($file =~ $pattern2)) ]]; then
         file_name="${file#./}"
-        file_name="${file_name%.*}"
+        file_name_raw="${file_name%.*}"
         extension=".${file##*.}"
         date="_$(date +%Y-%m-%d)"
 
-        mv $file "$file_destination_path$file_name$date$extension"
-        moved_files_number+=1
-    fi
+        final_path="$file_destination_path$file_name_raw$date$extension"
 
+        mv $file $final_path
+        moved_files_number=$((moved_files_number + 1))
+
+        echo "[OK] movendo $file_name -> $final_path"
+    fi
 done
+
+if [ $moved_files_number -eq 0 ]; then
+    echo "nenhum arquivo encontrado!"
+else
+    echo "--------------------------------"
+    echo "Limpeza concluída! $moved_files_number arquivo(s) movidos para o backup."
+fi
+
+exit 0
