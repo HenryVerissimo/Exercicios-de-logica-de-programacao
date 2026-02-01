@@ -22,22 +22,22 @@ moved_files_number=0
 #-------------------------------------------------------------------------
 # Script:
 
-[ ! -d $file_destination_path ] && mkdir "$file_destination_path" && echo "[info] Criando diretório de backup"
+[ ! -d "$file_destination_path" ] && mkdir "$file_destination_path" && echo "[info] Criando diretório de backup"
 
 for file in "$file_origin_path"*
 do
-    if [[ ($file =~ $pattern1 || ($file =~ $pattern2)) ]]; then
+    if [[ ("$file" =~ $pattern1 || ("$file" =~ $pattern2)) && -f "$file" ]]; then
         file_name="${file#./}"
         file_name_raw="${file_name%.*}"
         extension=".${file##*.}"
-        date="_$(date +%Y-%m-%d)"
+        current_date="_$(date +%Y-%m-%d)"
 
-        final_path="$file_destination_path$file_name_raw$date$extension"
+        final_path="$file_destination_path$file_name_raw$current_date$extension"
 
-        mv $file $final_path
+        mv "$file" "$final_path"
         moved_files_number=$((moved_files_number + 1))
 
-        echo "[OK] movendo $file_name -> $final_path"
+        [[ -f "$final_path" ]] && echo "[OK] movendo $file_name -> $final_path"
     fi
 done
 
