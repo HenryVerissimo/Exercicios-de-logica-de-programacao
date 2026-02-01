@@ -21,3 +21,19 @@ pattern2="\.tmp$"
 moved_files_number=0
 #-------------------------------------------------------------------------
 # Script:
+
+[ ! -d $file_destination_path ] && mkdir "$file_destination_path"
+
+for file in "$file_origin_path"*
+do
+    if [[ ($file =~ $pattern1 || ($file =~ $pattern2)) ]]; then
+        file_name="${file#./}"
+        file_name="${file_name%.*}"
+        extension=".${file##*.}"
+        date="_$(date +%Y-%m-%d)"
+
+        mv $file "$file_destination_path$file_name$date$extension"
+        moved_files_number+=1
+    fi
+
+done
