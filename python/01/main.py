@@ -1,13 +1,15 @@
 from program_interface import interface
+from process_data import create_user_data
 
 def main() -> None:
 
-    data = interface()
+    while True:
+        data = interface()
 
-    if data is None:
-        return
-    
-    # Processar os dados
+        if data is None:
+            return
+        
+        create_user_data(user=data)
 
 
 if __name__ == "__main__":
