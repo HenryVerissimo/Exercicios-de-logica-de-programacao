@@ -51,6 +51,11 @@ def interface() -> None | dict:
                     admin = input("O usuário é admin (S/N)? ")
 
                     if (admin.upper() in ["S", "N"]):
+                        if (admin.upper() == "S"):
+                            admin = True
+                        else:
+                            admin = False
+
                         break
 
                     print("Erro: Opção inválida! Escolha entre S e N.\n")
